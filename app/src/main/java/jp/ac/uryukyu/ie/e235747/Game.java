@@ -2,7 +2,14 @@ package jp.ac.uryukyu.ie.e235747;
 
 import java.util.Scanner;
 
+/**
+ * 戦闘ゲームを管理するクラス
+ */
 public class Game {
+
+    /**
+     * ゲームを開始するメソッド。
+     */
     public static void startGame() {
         Scanner scanner = new Scanner(System.in);
 
@@ -44,12 +51,24 @@ public class Game {
         displayResult(player, enemy);
     }
 
+    /**
+     * プレイヤーと敵のステータスを表示するメソッド。
+     * 
+     * @param player プレイヤーキャラクター
+     * @param enemy 敵キャラクター
+     */
     public static void displayStatus(Player player, Enemy enemy) {
         System.out.println("\n--- 現在のステータス ---");
         System.out.println(player.name + ": HP=" + player.health + ", 経験値=" + player.experience);
         System.out.println(enemy.name + ": HP=" + enemy.health);
     }
 
+    /**
+     * 戦闘結果を表示するメソッド。
+     * 
+     * @param player プレイヤーキャラクター
+     * @param enemy 敵キャラクター
+     */
     private static void displayResult(Player player, Enemy enemy) {
         System.out.println("\n--- 戦闘結果 ---");
         if (player.health > 0) {
@@ -59,6 +78,11 @@ public class Game {
         }
     }
 
+    /**
+     * プレイヤーがアイテムを使用するメソッド。
+     * 
+     * @param player プレイヤーキャラクター
+     */
     private static void useItem(Player player) {
         System.out.println("\n--- アイテム一覧 ---");
         for (int i = 0; i < player.inventory.length; i++) {
